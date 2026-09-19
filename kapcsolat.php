@@ -14,16 +14,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $targy = "Istvandev weboldal üzenet tőle: $nev";
+    // Resend API kulcs beolvasása biztonságosan a Wasmer környezeti változójából
+    $apiKey = getenv('RESEND_API_KEY'); 
+
+    if (empty($apiKey)) {
+        http_response_code(500);
+        echo "Szerver konfigurációs hiba: Hiányzik az API kulcs.";
+        exit;
+    }
     
-    $tartalom = "Név: $nev\n";
-    $tartalom .= "E-mail: $email\n\n";
-    $tartalom .= "Üzenet:\n$uzenet\n";
+    $data = [
+        'from' => 'Weboldal <onboarding@resend.dev>',
+        'to' => [$cimtett],
+        'subject' => "Istvandev weboldal üzenet tőle: $nev",
+        'html' => "<p><strong>Név:</strong> $nev</p><p><strong>E-mail:</strong> $email</p><p><strong>Üzenet:</strong><br>$uzenet</p>"
+    ];
 
-    $fejlec = "From: $nev <$email>";
+    $ch = curl_init('https://api.resend.com/emails');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $apiKey,
+        'Content-Type: application/json'
+    ]);
 
-    // E-mail küldése
-    if (mail($cimtett, $targy, $tartalom, $fejlec)) {
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if ($httpCode >= 200 && $httpCode < 300) {
         http_response_code(200);
         echo "Köszönjük! Az üzenetet elküldtük.";
     } else {

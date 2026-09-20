@@ -713,39 +713,6 @@ body.light .header {
     color: var(--text-muted);
 }
 
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    background: var(--bg-secondary);
-}
-
-.single-contact-box {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 50px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-}
-
-.centered-contact {
-    text-align: center;
-}
-
-.centered-contact p {
-    color: var(--text-muted);
-    margin-bottom: 30px;
-    font-size: 1.05rem;
-}
-
-.email-btn {
-    margin-top: 10px;
-}
-
-
 /* =========================
    FOOTER
 ========================= */

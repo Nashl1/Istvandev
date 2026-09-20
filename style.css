@@ -722,64 +722,27 @@ body.light .header {
     background: var(--bg-secondary);
 }
 
-.contact-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+.single-contact-box {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 60px;
+    border-radius: 16px;
 }
 
-.contact h2 {
-    font-size: clamp(2.2rem, 4vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.05em;
+.centered-contact {
+    text-align: center;
 }
 
-.contact-text > p:not(.eyebrow) {
+.centered-contact p {
     color: var(--text-muted);
-    margin: 25px 0;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
 }
 
-.email-link {
-    color: var(--accent-light);
-    border-bottom: 1px solid var(--accent-light);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.form-group input,
-.form-group textarea {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 14px;
-    border-radius: 7px;
-    outline: none;
-    resize: vertical;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent);
+.email-btn {
+    margin-top: 10px;
 }
 
 
@@ -788,11 +751,12 @@ body.light .header {
 ========================= */
 
 .footer {
+    background: var(--bg);
     border-top: 1px solid var(--border);
+    padding: 40px 0;
 }
 
 .footer-content {
-    min-height: 90px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -800,7 +764,7 @@ body.light .header {
 
 .footer p {
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 .back-top {
@@ -810,148 +774,11 @@ body.light .header {
     border-radius: 50%;
     display: grid;
     place-items: center;
+    color: var(--text-muted);
+    transition: var(--transition);
 }
 
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 950px) {
-
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 60px;
-    }
-
-    .hero-card {
-        max-width: 650px;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .contact-box {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    .section {
-        padding: 80px 0;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background: var(--bg);
-        flex-direction: column;
-        padding: 30px;
-        gap: 20px;
-
-        transform: translateY(-150%);
-        transition: var(--transition);
-    }
-
-    .nav-links.open {
-        transform: translateY(0);
-    }
-
-    .menu-toggle {
-        display: block;
-        order: 3;
-    }
-
-    .theme-toggle {
-        margin-left: auto;
-        margin-right: 15px;
-    }
-
-    .hero h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
-    }
-
-    .hero {
-        padding-top: 120px;
-    }
-
-    .scroll-down {
-        display: none;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .skills-grid,
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service {
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .contact-box {
-        padding: 30px;
-    }
-
-    .footer-content {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-}
-
-
-@media (max-width: 450px) {
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .code-content {
-        padding: 20px;
-        font-size: 0.72rem;
-    }
-
-    .stat {
-        padding: 20px;
-    }
+.back-top:hover {
+    color: var(--text);
+    background: var(--card);
 }

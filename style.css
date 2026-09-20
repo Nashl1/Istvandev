@@ -785,9 +785,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    RESPONSIVE MEDIA QUERIES
-========================= */
+ */
 
 @media (max-width: 992px) {
     .hero-content,

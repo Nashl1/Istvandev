@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +41,7 @@ img {
 }
 
 
-/*
+/* 
    VARIABLES
 */
 
@@ -438,7 +442,7 @@ body.light .header {
 
 /* 
    ABOUT
- */
+*/
 
 .about {
     background: var(--bg-secondary);
@@ -560,7 +564,7 @@ body.light .header {
 
 /* 
    PROJECTS
- */
+*/
 
 .projects {
     background: var(--bg-secondary);
@@ -678,7 +682,7 @@ body.light .header {
 
 /* 
    SERVICES
- */
+*/
 
 .services-grid {
     display: grid;
@@ -712,7 +716,7 @@ body.light .header {
 
 /* 
    CONTACT 
- */
+*/
 
 .contact {
     background: var(--bg-secondary);
@@ -787,7 +791,7 @@ body.light .header {
 
 /* 
    RESPONSIVE MEDIA QUERIES
- */
+*/
 
 @media (max-width: 992px) {
     .hero-content,

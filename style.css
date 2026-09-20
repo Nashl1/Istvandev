@@ -1,7 +1,3 @@
-/* =========================
-   RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -41,9 +37,9 @@ img {
 }
 
 
-/* =========================
+/*
    VARIABLES
-========================= */
+*/
 
 :root {
     --bg: #080808;
@@ -63,9 +59,9 @@ img {
 }
 
 
-/* =========================
+/* 
    LIGHT MODE
-========================= */
+*/
 
 body.light {
     --bg: #f5f5f7;
@@ -79,9 +75,9 @@ body.light {
 }
 
 
-/* =========================
+/* 
    GENERAL
-========================= */
+*/
 
 .container {
     width: min(90%, var(--container));
@@ -128,9 +124,9 @@ body.light {
 }
 
 
-/* =========================
+/* 
    HEADER
-========================= */
+*/
 
 .header {
     position: fixed;
@@ -212,9 +208,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    HERO
-========================= */
+*/
 
 .hero {
     min-height: 100vh;
@@ -317,9 +313,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    CODE CARD
-========================= */
+*/
 
 .hero-card {
     perspective: 1000px;
@@ -414,9 +410,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    SCROLL DOWN
-========================= */
+*/
 
 .scroll-down {
     position: absolute;
@@ -440,9 +436,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    ABOUT
-========================= */
+ */
 
 .about {
     background: var(--bg-secondary);
@@ -485,9 +481,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    SKILLS
-========================= */
+*/
 
 .skills-grid {
     display: grid;
@@ -562,9 +558,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    PROJECTS
-========================= */
+ */
 
 .projects {
     background: var(--bg-secondary);
@@ -680,9 +676,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    SERVICES
-========================= */
+ */
 
 .services-grid {
     display: grid;
@@ -714,9 +710,9 @@ body.light .header {
 }
 
 
-/* =========================
-   CONTACT (Reszponzív)
-========================= */
+/* 
+   CONTACT 
+ */
 
 .contact {
     background: var(--bg-secondary);
@@ -751,9 +747,9 @@ body.light .header {
 }
 
 
-/* =========================
+/* 
    FOOTER
-========================= */
+*/
 
 .footer {
     background: var(--bg);
@@ -824,7 +820,7 @@ body.light .header {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Ha van JS menü nyitás, azt kezeli, de alapesetben mobilra optimalizálva */
+        display: none; 
     }
 
     .menu-toggle {

@@ -14,8 +14,8 @@ html {
 
 body {
     font-family: "Inter", sans-serif;
-    background: #080808;
-    color: #f5f5f5;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -41,9 +41,9 @@ img {
 }
 
 
-/* 
+/* =========================
    VARIABLES
-*/
+========================= */
 
 :root {
     --bg: #080808;
@@ -63,25 +63,28 @@ img {
 }
 
 
-/* 
+/* =========================
    LIGHT MODE
-*/
+========================= */
 
 body.light {
-    --bg: #f5f5f7;
+    --bg: #f4f4f6;
     --bg-secondary: #ffffff;
     --card: #ffffff;
 
-    --text: #111111;
-    --text-muted: #666666;
+    --text: #171717;
+    --text-muted: #5f6368;
 
-    --border: rgba(0, 0, 0, 0.1);
+    --border: rgba(0, 0, 0, 0.12);
+
+    --accent: #7c3aed;
+    --accent-light: #6d28d9;
 }
 
 
-/* 
+/* =========================
    GENERAL
-*/
+========================= */
 
 .container {
     width: min(90%, var(--container));
@@ -128,9 +131,9 @@ body.light {
 }
 
 
-/* 
+/* =========================
    HEADER
-*/
+========================= */
 
 .header {
     position: fixed;
@@ -138,13 +141,16 @@ body.light {
     top: 0;
     left: 0;
     z-index: 1000;
+
     background: rgba(8, 8, 8, 0.7);
     backdrop-filter: blur(15px);
+
     border-bottom: 1px solid var(--border);
 }
 
 body.light .header {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -212,9 +218,9 @@ body.light .header {
 }
 
 
-/* 
+/* =========================
    HERO
-*/
+========================= */
 
 .hero {
     min-height: 100vh;
@@ -227,17 +233,30 @@ body.light .header {
 
 .hero-background {
     position: absolute;
+
     width: 700px;
     height: 700px;
+
     background: radial-gradient(
         circle,
         rgba(139, 92, 246, 0.18),
         transparent 65%
     );
+
     right: -200px;
     top: 50%;
+
     transform: translateY(-50%);
+
     pointer-events: none;
+}
+
+body.light .hero-background {
+    background: radial-gradient(
+        circle,
+        rgba(124, 58, 237, 0.10),
+        transparent 65%
+    );
 }
 
 .hero-content {
@@ -272,11 +291,17 @@ body.light .header {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 10px;
+
     padding: 14px 22px;
+
     border-radius: 8px;
+
     font-weight: 600;
+
     border: 1px solid transparent;
+
     transition: var(--transition);
 }
 
@@ -288,11 +313,14 @@ body.light .header {
 .btn-primary:hover {
     background: #7c3aed;
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.25);
+
+    box-shadow:
+        0 15px 30px rgba(139, 92, 246, 0.25);
 }
 
 .btn-secondary {
     border-color: var(--border);
+    color: var(--text);
 }
 
 .btn-secondary:hover {
@@ -317,9 +345,9 @@ body.light .header {
 }
 
 
-/* 
+/* =========================
    CODE CARD
-*/
+========================= */
 
 .hero-card {
     perspective: 1000px;
@@ -327,27 +355,54 @@ body.light .header {
 
 .code-window {
     background: #0e0e0e;
+
     border: 1px solid var(--border);
+
     border-radius: 15px;
+
     overflow: hidden;
+
     box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.5),
         0 0 80px rgba(139, 92, 246, 0.08);
+
     animation: float 5s ease-in-out infinite;
+}
+
+body.light .code-window {
+    background: #ffffff;
+
+    border-color: rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.12),
+        0 0 60px rgba(124, 58, 237, 0.06);
 }
 
 .window-header {
     height: 45px;
+
     display: flex;
     align-items: center;
+
     gap: 20px;
+
     padding: 0 18px;
+
     border-bottom: 1px solid #222;
+}
+
+body.light .window-header {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 .window-header p {
     font-size: 0.75rem;
     color: #777;
+}
+
+body.light .window-header p {
+    color: #666;
 }
 
 .window-dots {
@@ -358,7 +413,9 @@ body.light .header {
 .window-dots span {
     width: 10px;
     height: 10px;
+
     border-radius: 50%;
+
     background: #444;
 }
 
@@ -376,10 +433,17 @@ body.light .header {
 
 .code-content {
     padding: 30px;
+
     font-family: monospace;
     font-size: 0.9rem;
+
     line-height: 2;
+
     color: #aaa;
+}
+
+body.light .code-content {
+    color: #374151;
 }
 
 .indent {
@@ -402,6 +466,18 @@ body.light .header {
     color: #86efac;
 }
 
+body.light .purple {
+    color: #7c3aed;
+}
+
+body.light .yellow {
+    color: #b45309;
+}
+
+body.light .green {
+    color: #15803d;
+}
+
 @keyframes float {
     0%,
     100% {
@@ -414,35 +490,45 @@ body.light .header {
 }
 
 
-/* 
+/* =========================
    SCROLL DOWN
-*/
+========================= */
 
 .scroll-down {
     position: absolute;
+
     bottom: 30px;
     left: 50%;
+
     transform: translateX(-50%);
+
     color: var(--text-muted);
+
     font-size: 0.7rem;
+
     text-transform: uppercase;
+
     letter-spacing: 0.15em;
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
+
     gap: 8px;
 }
 
 .scroll-down span {
     width: 1px;
     height: 30px;
+
     background: var(--text-muted);
 }
 
 
-/* 
+/* =========================
    ABOUT
-*/
+========================= */
 
 .about {
     background: var(--bg-secondary);
@@ -450,85 +536,132 @@ body.light .header {
 
 .about-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 100px;
 }
 
 .about-text p {
     color: var(--text-muted);
+
     margin-bottom: 25px;
+
     font-size: 1.05rem;
 }
 
 .about-stats {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 1px;
+
     background: var(--border);
+
     border: 1px solid var(--border);
 }
 
 .stat {
     background: var(--bg-secondary);
+
     padding: 35px;
 }
 
 .stat strong {
     display: block;
+
     font-size: 2.5rem;
+
     color: var(--accent-light);
 }
 
 .stat span {
     color: var(--text-muted);
+
     font-size: 0.85rem;
 }
 
 
-/* 
+/* =========================
    SKILLS
-*/
+========================= */
 
 .skills-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 20px;
 }
 
 .skill-card {
     background: var(--card);
+
     border: 1px solid var(--border);
+
     padding: 30px;
+
     border-radius: 12px;
+
     transition: var(--transition);
 }
 
 .skill-card:hover {
     transform: translateY(-8px);
+
     border-color: rgba(139, 92, 246, 0.4);
 }
 
 .skill-icon {
     width: 50px;
     height: 50px;
+
     display: grid;
+
     place-items: center;
+
     background: rgba(139, 92, 246, 0.12);
+
     color: var(--accent-light);
+
     border-radius: 10px;
+
     font-weight: 800;
+
     font-size: 0.8rem;
+
     margin-bottom: 25px;
+}
+
+body.light .skill-icon {
+    color: #6d28d9;
+
+    background: rgba(124, 58, 237, 0.08);
 }
 
 .css-icon {
     color: #38bdf8;
+
     background: rgba(56, 189, 248, 0.1);
+}
+
+body.light .css-icon {
+    color: #0284c7;
+
+    background: rgba(14, 165, 233, 0.08);
 }
 
 .js-icon {
     color: #facc15;
+
     background: rgba(250, 204, 21, 0.1);
+}
+
+body.light .js-icon {
+    color: #a16207;
+
+    background: rgba(250, 204, 21, 0.14);
 }
 
 .skill-card h3 {
@@ -537,34 +670,48 @@ body.light .header {
 
 .skill-card p {
     color: var(--text-muted);
+
     font-size: 0.85rem;
+
     min-height: 80px;
 }
 
 .skill-bar {
     height: 4px;
+
     background: #292929;
+
     border-radius: 10px;
+
     margin-top: 25px;
+
     overflow: hidden;
+}
+
+body.light .skill-bar {
+    background: #e2e2e5;
 }
 
 .skill-bar span {
     display: block;
+
     height: 100%;
+
     background: var(--accent);
 }
 
 .skill-card small {
     display: block;
+
     color: var(--text-muted);
+
     margin-top: 8px;
 }
 
 
-/* 
+/* =========================
    PROJECTS
-*/
+========================= */
 
 .projects {
     background: var(--bg-secondary);
@@ -572,15 +719,21 @@ body.light .header {
 
 .projects-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .project-card {
     border: 1px solid var(--border);
+
     background: var(--card);
+
     border-radius: 12px;
+
     overflow: hidden;
+
     transition: var(--transition);
 }
 
@@ -590,7 +743,9 @@ body.light .header {
 
 .project-image {
     height: 250px;
+
     position: relative;
+
     overflow: hidden;
 }
 
@@ -626,11 +781,17 @@ body.light .header {
 
 .project-overlay {
     position: absolute;
+
     inset: 0;
+
     display: grid;
+
     place-items: center;
+
     background: rgba(0, 0, 0, 0.55);
+
     opacity: 0;
+
     transition: var(--transition);
 }
 
@@ -640,8 +801,11 @@ body.light .header {
 
 .project-overlay span {
     border: 1px solid white;
+
     padding: 10px 18px;
+
     border-radius: 50px;
+
     font-size: 0.8rem;
 }
 
@@ -651,17 +815,30 @@ body.light .header {
 
 .project-tags {
     display: flex;
+
     gap: 8px;
+
     margin-bottom: 15px;
+
     flex-wrap: wrap;
 }
 
 .project-tags span {
     font-size: 0.65rem;
+
     color: var(--accent-light);
+
     background: rgba(139, 92, 246, 0.1);
+
     padding: 5px 8px;
+
     border-radius: 4px;
+}
+
+body.light .project-tags span {
+    color: #6d28d9;
+
+    background: rgba(124, 58, 237, 0.08);
 }
 
 .project-info h3 {
@@ -670,28 +847,38 @@ body.light .header {
 
 .project-info p {
     color: var(--text-muted);
+
     font-size: 0.85rem;
+
     margin-bottom: 20px;
 }
 
 .project-link {
     font-size: 0.8rem;
+
     color: var(--accent-light);
 }
 
+body.light .project-link {
+    color: #6d28d9;
+}
 
-/* 
+
+/* =========================
    SERVICES
-*/
+========================= */
 
 .services-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     border-top: 1px solid var(--border);
 }
 
 .service {
     padding: 40px;
+
     border-right: 1px solid var(--border);
 }
 
@@ -701,11 +888,13 @@ body.light .header {
 
 .service-number {
     color: var(--accent-light);
+
     font-size: 0.75rem;
 }
 
 .service h3 {
     font-size: 1.4rem;
+
     margin: 30px 0 15px;
 }
 
@@ -714,9 +903,9 @@ body.light .header {
 }
 
 
-/* 
-   CONTACT 
-*/
+/* =========================
+   CONTACT
+========================= */
 
 .contact {
     background: var(--bg-secondary);
@@ -724,74 +913,147 @@ body.light .header {
 
 .contact-box {
     display: grid;
+
     grid-template-columns: 1.2fr 0.8fr;
+
     align-items: center;
+
     gap: 60px;
+
     background: var(--card);
+
     border: 1px solid var(--border);
+
     border-radius: 16px;
+
     padding: 60px;
 }
 
 .contact-text p {
     color: var(--text-muted);
+
     margin: 20px 0;
 }
 
 .email-link {
     display: inline-block;
+
     color: var(--accent-light);
+
     font-weight: 600;
+
     word-break: break-all;
 }
 
 .contact-action {
     display: flex;
+
     justify-content: flex-end;
 }
 
+body.light .email-link {
+    color: #6d28d9;
+}
 
-/* 
+
+/* =========================
    FOOTER
-*/
+========================= */
 
 .footer {
     background: var(--bg);
+
     border-top: 1px solid var(--border);
+
     padding: 40px 0;
 }
 
 .footer-content {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
 .footer p {
     color: var(--text-muted);
+
     font-size: 0.85rem;
 }
 
 .back-top {
     width: 40px;
     height: 40px;
+
     border: 1px solid var(--border);
+
     border-radius: 50%;
+
     display: grid;
+
     place-items: center;
+
     color: var(--text-muted);
+
     transition: var(--transition);
 }
 
 .back-top:hover {
     color: var(--text);
+
     background: var(--card);
 }
 
+body.light .back-top {
+    color: var(--text-muted);
 
-/* 
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+body.light .back-top:hover {
+    color: var(--text);
+
+    background: #eeeeef;
+}
+
+
+/* =========================
+   LIGHT MODE SOCIAL LINKS
+========================= */
+
+body.light .social-links a:hover {
+    color: #6d28d9;
+}
+
+
+/* =========================
+   LIGHT MODE THEME BUTTON
+========================= */
+
+body.light .theme-toggle {
+    color: #171717;
+
+    border-color: rgba(0, 0, 0, 0.14);
+}
+
+body.light .theme-toggle:hover {
+    background: #eeeeef;
+}
+
+
+/* =========================
+   LIGHT MODE MOBILE MENU
+========================= */
+
+body.light .menu-toggle span {
+    background: var(--text);
+}
+
+
+/* =========================
    RESPONSIVE MEDIA QUERIES
-*/
+========================= */
 
 @media (max-width: 992px) {
     .hero-content,
@@ -801,6 +1063,7 @@ body.light .header {
     .services-grid,
     .contact-box {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
@@ -810,6 +1073,7 @@ body.light .header {
 
     .service {
         border-right: none;
+
         border-bottom: 1px solid var(--border);
     }
 
@@ -822,9 +1086,10 @@ body.light .header {
     }
 }
 
+
 @media (max-width: 768px) {
     .nav-links {
-        display: none; 
+        display: none;
     }
 
     .menu-toggle {
